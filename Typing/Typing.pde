@@ -5,6 +5,7 @@ float time, t1;
 float x, y;
 letter l[];
 Button Reset;
+Button Reverse;
 
 void setup() {
   size(1200, 300); 
@@ -17,6 +18,7 @@ void draw() {
   Time();
   Color();
   Reset.Draw();
+  Reverse.Draw();
 }
 
 void Init() {
@@ -32,12 +34,19 @@ void Init() {
 }
 
 void InitButton() {
-  Reset = new Button(width/2, 250, 100, 50);
+  Reset = new Button(width/2 - 75, 250, 100, 50);
   Reset.Color(255);
   Reset.Stroke(2, 0);
   Reset.Text("Reset", 0, 23);
   Reset.mouseOver(50, 155, 50);
   Reset.Edge(5, 5, 5, 5);
+  
+  Reverse = new Button(width/2 + 75, 250, 100, 50);
+  Reverse.Color(255);
+  Reverse.Stroke(2, 0);
+  Reverse.Text("Reverse", 0, 23);
+  Reverse.mouseOver(50, 155, 50);
+  Reverse.Edge(5, 5, 5, 5);
 }
 
 void keyPressed() {
@@ -50,10 +59,14 @@ void keyPressed() {
   if (inputs.size() == 26)
     end = true;
   if (key == ' ') Reset();
+  if (key == '0') Reverse();
 }
 
 void mousePressed() {
   if (Reset.mouseOver()) {
     Reset();
+  } 
+  if(Reverse.mouseOver()) {
+    Reverse();
   }
 }

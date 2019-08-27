@@ -67,3 +67,12 @@ void Reset() {
   flag = false;
   end = false;
 }
+
+void Reverse() {
+  char[] b = new char[26];
+  for(int i=a.length-1, j=0;i>=0;i--,j++) {
+    b[j] = a[i];
+  }
+  a = b;
+  Reset();
+}
