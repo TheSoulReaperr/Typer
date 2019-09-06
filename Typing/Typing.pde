@@ -1,14 +1,17 @@
-char a[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 ArrayList<Character> inputs = new ArrayList<Character>();
 boolean start, flag, end;
 float time, t1;
 float x, y;
+char a[];
 letter l[];
 Button Reset;
 Button Reverse;
 
 void setup() {
-  size(1200, 300); 
+  size(1200, 300);
+  a = new char[26];
+  for(int i=0;i<26;i++)
+    a[i] = char(i+97);
   Init();
   InitButton();
 }
@@ -50,9 +53,9 @@ void InitButton() {
 }
 
 void keyPressed() {
-  start = true;
-  if (inputs.size() < 26 && !error()) {
-    inputs.add(new Character(key));
+  if (inputs.size() < 26 && !error() && ((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z'))){
+    start = true;
+    inputs.add(new Character(Character.toLowerCase(key)));
     for (letter k : l)
       k.x -= 40;
   }

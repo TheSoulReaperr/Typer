@@ -28,11 +28,12 @@ void Box() {
 
 boolean error() {
   boolean flag = false;
-  for (int i=0; i<inputs.size(); i++)
+  for (int i=0; i<inputs.size(); i++) {
     if (a[i] != inputs.get(i)) {      
       flag = true;
       break;
     }
+  }
   return flag;
 }
 
